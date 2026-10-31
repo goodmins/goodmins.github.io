@@ -2,6 +2,35 @@
 (() => {
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Features page: filter features as you type; sections with no match hide.
+  const q = document.getElementById('fx-q');
+  if (q) {
+    const items = [...document.querySelectorAll('.fx-item, .fx-table tbody tr:not(.grp)')];
+    items.forEach((el) => { el.dataset.text = el.textContent.toLowerCase(); });
+    const empty = document.getElementById('fx-empty');
+    const filter = () => {
+      const words = q.value.toLowerCase().split(/\s+/).filter(Boolean);
+      let any = false;
+      for (const el of items) {
+        const hit = words.every((w) => el.dataset.text.includes(w));
+        el.hidden = !hit; el.classList.toggle('hide', !hit);
+        if (hit && words.length && el.tagName === 'DETAILS') el.open = true;
+      }
+      document.querySelectorAll('.fx-sec').forEach((s) => {
+        const shown = [...s.querySelectorAll('.fx-item, tbody tr:not(.grp)')].some((el) => !el.hidden);
+        s.hidden = !shown; any = any || shown;
+        s.querySelectorAll('tr.grp').forEach((g) => {
+          let r = g.nextElementSibling, has = false;
+          while (r && !r.classList.contains('grp')) { has = has || !r.hidden; r = r.nextElementSibling; }
+          g.hidden = !has;
+        });
+      });
+      empty.hidden = any;
+    };
+    q.addEventListener('input', filter);
+    if (location.hash.startsWith('#q=')) { q.value = decodeURIComponent(location.hash.slice(3)); filter(); }
+  }
+
   // The hero always shows on load; older browsers without IntersectionObserver show everything.
   setTimeout(() => document.querySelectorAll('.hero .reveal').forEach((el) => el.classList.add('in')), 60);
   if (!('IntersectionObserver' in window)) {
@@ -19,6 +48,21 @@
   const top = document.getElementById('top');
   const onScroll = () => top && top.classList.toggle('scrolled', scrollY > 8);
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // Features page: highlight the section in view; on narrow screens keep its chip visible.
+  const toc = document.querySelector('.fx-toc');
+  if (toc) {
+    const links = new Map([...toc.querySelectorAll('a')].map((a) => [a.hash.slice(1), a]));
+    const spy = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        links.forEach((a) => a.classList.remove('on'));
+        const a = links.get(e.target.id);
+        if (a) { a.classList.add('on'); if (toc.scrollWidth > toc.clientWidth) toc.scrollTo({ left: a.offsetLeft - 16, behavior: still ? 'auto' : 'smooth' }); }
+      }
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('.fx-sec').forEach((s) => spy.observe(s));
+  }
 
   // Phone tilts toward the pointer (desktop only).
   const phone = document.getElementById('tilt');
