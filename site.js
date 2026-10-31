@@ -2,6 +2,20 @@
 (() => {
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Phone menu: the header button opens a panel of links; a link, Escape or a tap outside closes it.
+  const menuBtn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
+  if (menuBtn && menu) {
+    const header = menuBtn.closest('.top');
+    const setOpen = (open) => {
+      menu.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open)); header.classList.toggle('open', open);
+    };
+    menuBtn.addEventListener('click', () => setOpen(menu.hidden));
+    menu.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+    document.addEventListener('click', (e) => { if (!menu.hidden && !header.contains(e.target)) setOpen(false); });
+    addEventListener('resize', () => { if (innerWidth > 960) setOpen(false); });
+  }
+
   // Features page: filter features as you type; sections with no match hide.
   const q = document.getElementById('fx-q');
   if (q) {

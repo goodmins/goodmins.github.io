@@ -355,6 +355,35 @@ mark { background: rgba(122,176,245,.28); color: var(--text); border-radius: 4px
 .all-link .btn, .fx-ask .btn { height: auto; min-height: 52px; padding-block: 12px; text-align: center; }
 .faq-more { margin: 28px 0 0; color: var(--dim); }
 
+/* Phone menu: a button in the header opens a panel of links (below 960px, where the nav links hide) */
+.menu-btn { display: none; width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--line-2); background: rgba(255,255,255,.03); cursor: pointer;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; }
+.menu-btn span { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--text); transition: transform .3s var(--ease), opacity .2s; }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu { position: absolute; top: 100%; left: 0; right: 0; padding: 10px 20px 22px; display: grid; gap: 2px;
+  background: rgba(11,11,12,.96); backdrop-filter: saturate(1.5) blur(16px); border-bottom: 1px solid var(--line); animation: drop .3s var(--ease); }
+.menu[hidden] { display: none; }
+.menu a { color: var(--text); text-decoration: none; font: 600 1.15rem var(--display); padding: 13px 4px; border-bottom: 1px solid var(--line); }
+.menu a:last-child { border-bottom: 0; }
+@keyframes drop { from { opacity: 0; transform: translateY(-8px); } }
+.top.open { background: rgba(11,11,12,.96); border-color: var(--line); }
+
+/* Reports showcase */
+.reports { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.reports .sub { margin-bottom: 28px; }
+.rlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.rlist li { display: flex; gap: 14px; align-items: flex-start; }
+.rlist svg { flex: none; width: 26px; height: 26px; padding: 5px; border-radius: 8px; background: rgba(107,203,147,.12); fill: none; stroke: var(--green); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; margin-top: 2px; }
+.rlist b { display: block; font: 700 1.08rem var(--display); }
+.rlist span { color: var(--dim); font-size: .98rem; }
+.reports-shots { position: relative; height: 640px; }
+.reports-shots::before { content: ""; position: absolute; inset: 10% 5%; border-radius: 50%; background: radial-gradient(circle, rgba(122,176,245,.28), transparent 65%); filter: blur(30px); }
+.reports-shots .phone { position: absolute; width: 280px; top: 0; }
+.reports-shots .front { left: 40%; top: 30px; }
+.reports-shots .back { left: 8%; transform: rotate(-7deg) scale(.92); opacity: .75; }
+
 /* Responsive */
 @media (max-width: 960px) {
   .hero .wrap, .private, .calc { grid-template-columns: 1fr; }
@@ -368,7 +397,10 @@ mark { background: rgba(122,176,245,.28); color: var(--text); border-radius: 4px
   .tile, .tile.wide, .tile.xl { grid-column: span 2; }
   .tile.half { grid-column: span 2; }
   nav a.opt { display: none; }
+  .menu-btn { display: inline-flex; }
   section { padding: 84px 0; }
+  .reports { grid-template-columns: 1fr; gap: 32px; }
+  .reports-shots { height: 560px; max-width: 520px; width: 100%; margin: 0 auto; }
   .fx { grid-template-columns: 1fr; gap: 0; }
   .fx-toc { position: sticky; top: 68px; z-index: 5; max-height: none; overflow-x: auto; overflow-y: hidden; margin: 0 -20px 28px; padding: 10px 20px; background: rgba(11,11,12,.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); scrollbar-width: none; }
   .fx-toc::-webkit-scrollbar { display: none; }
@@ -394,6 +426,10 @@ mark { background: rgba(122,176,245,.28); color: var(--text); border-radius: 4px
   .btn { width: 100%; }
   nav { gap: 16px; }
   .top nav a:not(.pill) { display: none; }
+  .reports-shots { height: 470px; }
+  .reports-shots .phone { width: 220px; }
+  .reports-shots .front { left: auto; right: 2%; }
+  .reports-shots .back { left: 0; }
   .fx-toc { margin-inline: -16px; padding-inline: 16px; }
   article.fx-item { padding: 20px 18px; }
   .fx-table th, .fx-table td { padding: 10px 12px; }

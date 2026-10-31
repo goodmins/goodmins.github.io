@@ -36,7 +36,17 @@
       <a class="opt" href="#faq">FAQ</a>
       <a href="privacy.html">Privacy</a>
       <a class="pill" href="https://www.phonepeappstore.com/apps/productivity/goodmins/app.goodmins/?page=details&amp;id=app.goodmins" target="_blank" rel="noopener"><span class="dot"></span>Get the app</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
+  </div>
+  <div class="menu" id="menu" hidden>
+      <a href="#how">How it works</a>
+      <a href="features.html">All features</a>
+      <a href="#reports">Reports</a>
+      <a href="#plus">Goodmins Plus</a>
+      <a href="#faq">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
   </div>
 </header>
 
@@ -58,7 +68,7 @@
       </ul>
     </div>
     <div class="stage reveal" style="--i:2">
-      <div class="phone" id="tilt"><img src="img/home.webp" width="600" height="1251" alt="Goodmins home screen: today's score, points balance, good-days grid and quick actions" fetchpriority="high"></div>
+      <div class="phone" id="tilt"><img src="img/home.jpg" width="600" height="1308" alt="Goodmins home screen: today's score, points balance, good-days grid and quick actions" fetchpriority="high"></div>
       <div class="float f1" aria-hidden="true"><i>🌙</i>In bed on time <b class="up">+20</b></div>
       <div class="float f2" aria-hidden="true"><i>👟</i>20-min walk <b class="up">+30</b></div>
       <div class="float f3" aria-hidden="true"><i>📱</i>30 min Instagram <b class="down">−30</b></div>
@@ -253,15 +263,39 @@
       <p class="sub reveal" style="--i:2">Plain words, quiet colours, one thing to do next.</p>
     </div>
     <div class="gallery reveal" tabindex="0" aria-label="App screens, scroll sideways">
-      <figure><div class="phone"><img src="img/home.webp" width="600" height="1251" loading="lazy" alt="Home screen"></div><figcaption>Your day</figcaption></figure>
-      <figure><div class="phone"><img src="img/activity.webp" width="600" height="1251" loading="lazy" alt="Activity screen with routines and step history"></div><figcaption>Movement</figcaption></figure>
-      <figure><div class="phone"><img src="img/reading.webp" width="600" height="1251" loading="lazy" alt="Reading shelves"></div><figcaption>Reading</figcaption></figure>
-      <figure><div class="phone"><img src="img/food.webp" width="600" height="1251" loading="lazy" alt="Food log"></div><figcaption>Food and water</figcaption></figure>
+      <figure><div class="phone"><img src="img/home.jpg" width="600" height="1308" loading="lazy" alt="Home screen"></div><figcaption>Your day</figcaption></figure>
+      <figure><div class="phone"><img src="img/weekly.jpg" width="600" height="1308" loading="lazy" alt="Weekly report with score, tips and trends"></div><figcaption>Weekly report</figcaption></figure>
+      <figure><div class="phone"><img src="img/activity.jpg" width="600" height="1308" loading="lazy" alt="Activity history with rings and charts"></div><figcaption>Movement</figcaption></figure>
+      <figure><div class="phone"><img src="img/routine.jpg" width="600" height="1308" loading="lazy" alt="Routine timer with a figure for each move"></div><figcaption>Routines</figcaption></figure>
+      <figure><div class="phone"><img src="img/food.jpg" width="600" height="1308" loading="lazy" alt="Portion wheel when logging a meal"></div><figcaption>Food</figcaption></figure>
+      <figure><div class="phone"><img src="img/limit.jpg" width="600" height="1308" loading="lazy" alt="The screen over a limited app"></div><figcaption>App limits</figcaption></figure>
+      <figure><div class="phone"><img src="img/reading.jpg" width="600" height="1308" loading="lazy" alt="Reading shelves"></div><figcaption>Reading</figcaption></figure>
       <figure><div class="phone"><img src="img/night.webp" width="600" height="1251" loading="lazy" alt="Wind-down screen"></div><figcaption>Wind-down</figcaption></figure>
     </div>
     <div class="gallery-nav" hidden>
       <button class="arrow" type="button" data-dir="-1" aria-label="Previous screens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
       <button class="arrow" type="button" data-dir="1" aria-label="Next screens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<section id="reports" aria-labelledby="reports-title">
+  <div class="wrap reports">
+    <div class="reports-copy">
+      <span class="kicker reveal">Reports · Plus</span>
+      <h2 id="reports-title" class="reveal" style="--i:1">A report that coaches you.</h2>
+      <p class="sub reveal" style="--i:2">Every week and every month, Goodmins shows how you did and what to try next, worked out from your own numbers.</p>
+      <ul class="rlist">
+        <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Your score at a glance</b><span>Average score, good days and your best day, set against the week or month before.</span></div></li>
+        <li class="reveal" style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Tips from your own data</b><span>Late nights, short sleep, fewer steps, rising app time or a weak weekday: up to three things to try next, and what each earns.</span></div></li>
+        <li class="reveal" style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>A trend for every habit</b><span>Sleep, steps, workouts, reading, app time, mood and junk food, each with its own line and change.</span></div></li>
+        <li class="reveal" style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Nothing is ever lost</b><span>Reports are rebuilt from your saved data, so any past week or month opens again.</span></div></li>
+        <li class="reveal" style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Share it as a picture</b><span>One tap sends a clean image of your week, with the text alongside.</span></div></li>
+      </ul>
+    </div>
+    <div class="reports-shots reveal" style="--i:1">
+      <div class="phone back"><img src="img/monthly.jpg" width="600" height="1308" loading="lazy" alt="Monthly report with a calendar of good days"></div>
+      <div class="phone front"><img src="img/weekly.jpg" width="600" height="1308" loading="lazy" alt="Weekly report: score dial, tips for next week and metric tiles with trends"></div>
     </div>
   </div>
 </section>
@@ -280,8 +314,8 @@
     </div>
     <div class="plus-grid">
       <div class="plus-benefits">
-        <article class="pb reveal"><div class="ficon" aria-hidden="true">📈</div><h4>Weekly and monthly reports</h4><p>Score, good days, sleep, steps, workouts, reading, app time, food and mood, each set against the week or month before.</p></article>
-        <article class="pb reveal" style="--i:1"><div class="ficon" aria-hidden="true">🗓️</div><h4>A calendar of your month</h4><p>See good and bad days at a glance, find your best day, and share the report.</p></article>
+        <article class="pb reveal"><div class="ficon" aria-hidden="true">📈</div><h4>Weekly and monthly reports</h4><p>Score, good days, sleep, steps, workouts, reading, app time, food and mood against the period before, with tips for what to try next.</p></article>
+        <article class="pb reveal" style="--i:1"><div class="ficon" aria-hidden="true">🗓️</div><h4>A calendar of your month</h4><p>Good and bad days at a glance, your best weekday, any past month, and a picture of the report to share.</p></article>
         <article class="pb reveal" style="--i:2"><div class="ficon" aria-hidden="true">🎛️</div><h4>Full control</h4><p>Block an app completely, set its hours, choose what each habit earns, and tune slot prices and limits.</p></article>
       </div>
       <div class="compare reveal" style="--i:1">
@@ -294,7 +328,8 @@
           <tr><td>Export all your data as CSV</td><td><svg viewBox="0 0 24 24" class="yes" aria-label="Included"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td><td><svg viewBox="0 0 24 24" class="yes" aria-label="Included"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
           <tr><td>Weekly report: this week against last</td><td><span class="no" aria-label="Not included">—</span></td><td><svg viewBox="0 0 24 24" class="yes" aria-label="Included"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
           <tr><td>Monthly report with a calendar of good days</td><td><span class="no" aria-label="Not included">—</span></td><td><svg viewBox="0 0 24 24" class="yes" aria-label="Included"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
-          <tr><td>Share your reports</td><td><span class="no" aria-label="Not included">—</span></td><td><svg viewBox="0 0 24 24" class="yes" aria-label="Included"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+          <tr><td>Tips for the next week or month, from your data</td><td><span class="no" aria-label="Not included">—</span></td><td><svg viewBox="0 0 24 24" class="yes" aria-label="Included"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+          <tr><td>Share your reports as a picture</td><td><span class="no" aria-label="Not included">—</span></td><td><svg viewBox="0 0 24 24" class="yes" aria-label="Included"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
           <tr><td>Block an app completely</td><td><span class="no" aria-label="Not included">—</span></td><td><svg viewBox="0 0 24 24" class="yes" aria-label="Included"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
           <tr><td>Set the hours an app can be used</td><td><span class="no" aria-label="Not included">—</span></td><td><svg viewBox="0 0 24 24" class="yes" aria-label="Included"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
           <tr><td>Edit what each habit earns or costs</td><td><span class="no" aria-label="Not included">—</span></td><td><svg viewBox="0 0 24 24" class="yes" aria-label="Included"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
